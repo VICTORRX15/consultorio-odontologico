@@ -1,0 +1,96 @@
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef5fb; /* Fondo suave azul claro */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Encabezado principal */
+h1 {
+    text-align: center;
+    color: #4a90e2; /* Azul profesional */
+    margin: 20px 0;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del formulario */
+form {
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #d4e9f9;
+}
+
+/* Campos del formulario */
+form .mb-3 {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #4a90e2;
+}
+
+form .form-control,
+form .form-select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form .form-control:focus,
+form .form-select:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
+}
+
+/* Botón de acción */
+form .btn-primary {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    color: #ffffff;
+    font-size: 1.1em;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+form .btn-primary:hover {
+    background-color: #3a7cba;
+    transform: scale(1.03);
+}
+
+form .btn-primary:active {
+    background-color: #2d6193;
+    transform: scale(1);
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    form .btn-primary {
+        width: 100%;
+    }
+}

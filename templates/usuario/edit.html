@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Editar Usuario {% endblock %}
+{% block content %}
+<h1>Actualizar Usuario</h1>
+<form action="{{ url_for('usuario.edit', id=usuario.id) }}" method="POST">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input type="text" name="nombre" value="{{ usuario.nombre }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Usuario</label>
+        <input type="text" name="username" value="{{ usuario.username }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Contraseña</label>
+        <input type="password" name="password" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Rol</label>
+        <select name="rol" class="form-select">
+            <option value="admin" {% if usuario.rol == 'admin' %} selected {% endif %}>Admin</option>
+            <option value="asistente" {% if usuario.rol == 'asistente' %} selected {% endif %}>Asistente</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+<link rel="stylesheet" href="{{ url_for('static', filename='usuario/usuario_edit.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+{% endblock %}

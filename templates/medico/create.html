@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Crear Médico {% endblock %}
+{% block content %}
+<h1>Registrar Médico</h1>
+<form action="{{ url_for('medico.create') }}" method="POST">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Apellido</label>
+        <input type="text" name="apellido" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Teléfono</label>
+        <input type="text" name="telefono" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Correo Electrónico</label>
+        <input type="email" name="correo_electronico" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Especialidad</label>
+        <select name="especialidad_id" class="form-select" required>
+            {% for especialidad in especialidades %}
+            <option value="{{ especialidad.id }}">{{ especialidad.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+<link rel="stylesheet" href="{{ url_for('static', filename='medico/medico_create.css') }}">
+{% endblock %}

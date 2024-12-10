@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Editar Cita {% endblock %}
+{% block content %}
+<h1>Actualizar Cita</h1>
+<form action="{{ url_for('cita.edit', id=cita.id) }}" method="POST">
+    <div class="mb-3">
+        <label>Médico</label>
+        <select name="medico_id" class="form-select" required>
+            {% for medico in medicos %}
+            <option value="{{ medico.id }}" {% if medico.id == cita.medico_id %} selected {% endif %}>
+                {{ medico.nombre }} {{ medico.apellido }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Paciente</label>
+        <select name="paciente_id" class="form-select" required>
+            {% for paciente in pacientes %}
+            <option value="{{ paciente.id }}" {% if paciente.id == cita.paciente_id %} selected {% endif %}>
+                {{ paciente.nombre }} {{ paciente.apellido }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Fecha y Hora</label>
+        <input type="datetime-local" name="fecha" value="{{ cita.fecha.strftime('%Y-%m-%dT%H:%M') }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Descripción</label>
+        <textarea name="descripcion" class="form-control" rows="3" required>{{ cita.descripcion }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+<link rel="stylesheet" href="{{ url_for('static', filename='cita/cita_edit.css') }}">
+{% endblock %}

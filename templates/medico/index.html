@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Médicos {% endblock %}
+{% block content %}
+<h1>Lista de Médicos</h1>
+<a href="{{ url_for('medico.create') }}" class="btn btn-success mb-3">Nuevo Médico</a>
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Teléfono</th>
+        <th>Correo Electrónico</th>
+        <th>Especialidad</th>
+        <th>Acciones</th>
+    </tr>
+    {% for medico in medicos %}
+    <tr>
+        <td>{{ medico.id }}</td>
+        <td>{{ medico.nombre }}</td>
+        <td>{{ medico.apellido }}</td>
+        <td>{{ medico.telefono }}</td>
+        <td>{{ medico.correo_electronico }}</td>
+        <td>{{ medico.especialidad.nombre }}</td>
+        <td>
+            <a href="{{ url_for('medico.edit', id=medico.id) }}" class="btn btn-warning btn-sm">Editar</a>
+            <a href="{{ url_for('medico.delete', id=medico.id) }}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<link rel="stylesheet" href="{{ url_for('static', filename='medico/medico_index.css') }}">
+{% endblock %}
